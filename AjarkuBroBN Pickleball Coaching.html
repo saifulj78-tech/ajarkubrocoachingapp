@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AjarkuBroBN | Energetic Pickleball Coaching with Coach Saifullah Jamil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            crimson: '#E63946',
+                            crimsonDark: '#C52233',
+                            crimsonLight: '#FF6B6B',
+                            cream: '#FAF9F6',
+                            surface: '#FFFFFF',
+                            slateDark: '#1E293B',
+                            coralSoft: '#FFF5F5',
+                            amberWarm: '#F59E0B',
+                            emeraldBright: '#10B981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS SDK for instant email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF9F6;
+            color: #1E293B;
+            overflow-x: hidden;
+        }
+
+        .card-white {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 57, 70, 0.12);
+            box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.08);
+        }
+
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(230, 57, 70, 0.4);
+            box-shadow: 0 20px 35px -12px rgba(230, 57, 70, 0.18);
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .btn-sheen {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-sheen::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                rgba(255,255,255,0) 20%,
+                rgba(255,255,255,0.4) 50%,
+                rgba(255,255,255,0) 80%
+            );
+            transform: rotate(25deg);
+            animation: sheenMove 4s infinite;
+        }
+
+        @keyframes sheenMove {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        .bg-warm-mesh {
+            background-color: #FAF9F6;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(230, 57, 70, 0.08) 0px, transparent 40%),
+                radial-gradient(at 90% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 40%),
+                radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.9) 0px, transparent 100%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E63946;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-warm-mesh antialiased text-brand-slateDark selection:bg-brand-crimson selection:text-white">
+
+    <div class="bg-gradient-to-r from-brand-crimsonDark via-brand-crimson to-rose-500 text-white px-4 py-2.5 text-center text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 shadow-sm relative z-50">
+        <span class="bg-amber-300 text-slate-900 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse shadow-sm">
+            INTRO OFFER
+        </span>
+        <span>
+            🔥 First 3 Sessions Promo: <span class="text-amber-200 font-black">BND $10</span> / pax / hour! <span class="hidden sm:inline text-white/90 font-normal">(Regular BND $15)</span>
+        </span>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-rose-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-crimsonDark to-brand-crimson flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-table-tennis-paddle-ball text-white"></i>
+                </div>
+                <div>
+                    <span class="font-black text-lg sm:text-xl tracking-tight text-slate-900 block leading-none">
+                        AjarkuBro<span class="text-brand-crimson">BN</span>
+                    </span>
+                    <span class="text-[10px] text-slate-500 font-bold tracking-widest uppercase">Pickleball Coaching</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                <a href="#quiz" class="hover:text-brand-crimson transition-colors">Skill Quiz</a>
+                <a href="#about" class="hover:text-brand-crimson transition-colors">About Coach</a>
+                <a href="#modules" class="hover:text-brand-crimson transition-colors">Modules</a>
+                <a href="#booking" class="hover:text-brand-crimson transition-colors">Book Session</a>
+                <a href="#contact" class="hover:text-brand-crimson transition-colors">Ask Query</a>
+                <a href="#admin" class="hover:text-brand-crimson transition-colors text-amber-600 font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-lock text-xs"></i> Coach Admin
+                </a>
+            </nav>
+
+            <a href="#booking" class="btn-sheen bg-gradient-to-r from-brand-crimson to-brand-crimsonDark hover:from-brand-crimsonDark hover:to-brand-crimson text-white font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all transform hover:scale-105 shadow-md flex items-center gap-2">
+                <i class="fa-solid fa-calendar-check text-xs"></i>
+                <span>Book Coach</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative pt-8 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/80 border border-rose-200 text-brand-crimsonDark text-xs sm:text-sm font-bold shadow-xs">
+                        <span class="w-2 h-2 rounded-full bg-brand-crimson animate-ping"></span>
+                        Coach Saifullah Jamil • APBA Certified Level 1
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+                        Ajarku Bro! <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson via-rose-600 to-amber-500">
+                            I Travel To Your Court.
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                        Ready to elevate your pickleball skills in Brunei? Book your own court, pick your module, and get instant notifications straight to Coach Saifullah's phone for fast confirmation!
+                    </p>
+
+                    <!-- Special Offer Banner -->
+                    <div class="card-white rounded-2xl p-5 text-left max-w-xl mx-auto lg:mx-0 shadow-lg relative overflow-hidden group border-2 border-rose-200">
+                        <div class="flex items-start justify-between gap-4 relative z-10">
+                            <div>
+                                <span class="text-[11px] font-black text-amber-600 tracking-wider uppercase block mb-1">
+                                    ⚡ First 3 Sessions Launch Promo
+                                </span>
+                                <div class="text-3xl sm:text-4xl font-black text-slate-900 flex items-baseline gap-2">
+                                    <span>BND $10</span>
+                                    <span class="text-xs font-semibold text-slate-500">/ pax / hour</span>
+                                    <span class="text-sm text-slate-400 line-through font-normal">BND $15</span>
+                                </div>
+                                <p class="text-xs text-slate-600 mt-1 font-medium">
+                                    Instant notification sent straight to coach upon booking submission!
+                                </p>
+                            </div>
+                            <span class="bg-amber-100 text-amber-800 border border-amber-300 text-xs font-black px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xs">
+                                SAVE 33%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start pt-2">
+                        <a href="#booking" class="btn-sheen bg-gradient-to-r from-brand-crimson to-brand-crimsonDark text-white font-extrabold px-8 py-4 rounded-xl text-base transition-all transform hover:-translate-y-0.5 shadow-lg text-center flex items-center justify-center gap-2">
+                            <span>Calculate & Book Session</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#contact" class="bg-white hover:bg-rose-50 text-slate-800 font-bold px-6 py-4 rounded-xl text-base border border-slate-200 transition-all text-center shadow-sm flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <span>Ask Coach A Query</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md space-y-4">
+                        <div class="card-white rounded-2xl p-6 shadow-xl animate-float relative z-20 border border-rose-100">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-crimson to-rose-400 flex items-center justify-center text-white text-2xl font-bold shadow-md shrink-0">
+                                    <i class="fa-solid fa-bell"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-lg text-slate-900">Instant Phone Alerts</h3>
+                                    <p class="text-xs text-brand-crimson font-bold uppercase tracking-wide">Coach Saifullah Jamil</p>
+                                    <span class="text-slate-600 text-xs mt-1 block font-medium">WhatsApp + Push + Email notifications linked!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white border-y border-rose-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-5 text-center">
+                    <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-gradient-to-tr from-brand-crimsonDark via-brand-crimson to-amber-400 mx-auto flex items-center justify-center text-white shadow-xl p-2 relative">
+                        <div class="w-full h-full bg-slate-900 rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                            <i class="fa-solid fa-award text-amber-400 text-4xl mb-2"></i>
+                            <span class="font-black text-lg text-white">Coach Saifullah</span>
+                            <span class="text-[11px] text-rose-300 font-bold uppercase">APBA Certified Level 1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-7 space-y-4">
+                    <span class="text-brand-crimson text-xs font-extrabold uppercase tracking-widest block">Meet Your Coach</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Passionate Coaching, Structured for Results</h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                        Hi! I am <strong class="text-slate-900">Saifullah Jamil</strong>, an APBA Certified Level 1 Pickleball Coach. I am deeply passionate about growing the sport in Brunei and helping players unlock their full potential.
+                    </p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                        By day, my profession is in <strong class="text-slate-900">Employee Learning & Development (L&D)</strong>. I bring these exact adult-training principles onto the pickleball court—breaking down complex strokes, court positioning, and game strategy into clear, easy-to-learn steps so you improve faster while having fun!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="py-16 bg-warm-mesh border-b border-rose-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-brand-crimson text-xs font-extrabold uppercase tracking-widest block mb-1">Interactive Guide</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Find Your Recommended Module</h2>
+            </div>
+            <div id="quizContainer" class="card-white rounded-3xl p-6 sm:p-8 shadow-md border border-rose-200">
+                <div id="quizQ1" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-crimson uppercase tracking-wider block">Question 1 of 2</span>
+                    <h3 class="text-lg font-extrabold text-slate-900">How would you describe your current pickleball experience?</h3>
+                    <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                        <button type="button" onclick="answerQ1('beginner')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>🌱 Brand New / Beginner</span>
+                            <span class="text-xs font-normal text-slate-500">Learning rules & serves</span>
+                        </button>
+                        <button type="button" onclick="answerQ1('intermediate')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>🔥 Regular Player</span>
+                            <span class="text-xs font-normal text-slate-500">Want better drops & resets</span>
+                        </button>
+                        <button type="button" onclick="answerQ1('custom')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>🎯 Specific Focus</span>
+                            <span class="text-xs font-normal text-slate-500">Fix specific flaws or match prep</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="quizQ2" class="space-y-4 hidden">
+                    <span class="text-xs font-bold text-brand-crimson uppercase tracking-wider block">Question 2 of 2</span>
+                    <h3 class="text-lg font-extrabold text-slate-900">What is your primary goal for our session?</h3>
+                    <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                        <button type="button" onclick="finishQuiz('Basic Module')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>🎾 Build Solid Consistency</span>
+                            <span class="text-xs font-normal text-slate-500">Smooth form & mechanics</span>
+                        </button>
+                        <button type="button" onclick="finishQuiz('Advanced Module')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>⚡ Win More Points</span>
+                            <span class="text-xs font-normal text-slate-500">3rd shot drops & court strategy</span>
+                        </button>
+                        <button type="button" onclick="finishQuiz('Customized Module')" class="p-4 text-left rounded-2xl border-2 border-slate-200 hover:border-brand-crimson hover:bg-rose-50 transition-all font-semibold text-slate-800 text-sm flex flex-col justify-between h-28">
+                            <span>🎬 Tailored Drilling & Review</span>
+                            <span class="text-xs font-normal text-slate-500">Video review & match scenarios</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="quizResult" class="text-center space-y-4 hidden py-4">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-100 text-brand-crimson flex items-center justify-center text-3xl mx-auto font-black shadow-sm">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block">Recommended Match</span>
+                    <h3 id="recommendedModuleName" class="text-2xl font-black text-slate-900">Basic Module</h3>
+                    <button type="button" onclick="applyQuizRecommendation()" class="btn-sheen bg-brand-crimson hover:bg-brand-crimsonDark text-white font-bold px-8 py-3 rounded-xl text-sm shadow-md inline-flex items-center gap-2">
+                        <span>Select Module & Book</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-crimson text-xs font-extrabold uppercase tracking-widest block mb-1">Coaching Tracks</span>
+                <h2 class="text-3xl font-black text-slate-900">Tailored Modules for Every Player</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Basic Module -->
+                <div class="card-white card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-rose-200">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-rose-100 text-brand-crimson flex items-center justify-center font-bold text-xl mb-4">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Basic Module</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+                            Perfect for beginners and recreational players wanting to build a solid foundation.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-700 mb-6 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Correct grip & paddle control</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Serve & return consistency</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Kitchen line (NVZ) dinking mechanics</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" onclick="selectModuleOption('Basic Module')" class="bg-rose-50 hover:bg-rose-100 text-brand-crimson font-bold py-3 rounded-xl text-xs text-center transition-colors">
+                        Select Basic Module
+                    </a>
+                </div>
+
+                <!-- Advanced Module -->
+                <div class="card-white card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-2 border-brand-crimson shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-crimson text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl">
+                        Popular
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-crimson text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Advanced Module</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+                            Designed for regular players looking to dominate matches with strategy and tactical control.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-700 mb-6 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> 3rd shot drops vs. drives</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Transition zone resets & defense</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Stacking & court positioning strategy</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" onclick="selectModuleOption('Advanced Module')" class="btn-sheen bg-brand-crimson hover:bg-brand-crimsonDark text-white font-bold py-3 rounded-xl text-xs text-center transition-all shadow-md">
+                        Select Advanced Module
+                    </a>
+                </div>
+
+                <!-- Customized Module -->
+                <div class="card-white card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-rose-200">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xl mb-4">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Customized Module</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+                            Tailor-made session focused strictly on your specific weaknesses, video review, or tournament prep.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-700 mb-6 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Personalized flaw analysis</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Match scenario drills</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-crimson"></i> Specific partner coordination</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" onclick="selectModuleOption('Customized Module')" class="bg-rose-50 hover:bg-rose-100 text-brand-crimson font-bold py-3 rounded-xl text-xs text-center transition-colors">
+                        Select Customized Module
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-16 bg-warm-mesh border-t border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-brand-crimson text-xs font-extrabold uppercase tracking-widest block mb-1">
+                    Live Booking Engine
+                </span>
+                <h2 class="text-3xl font-black text-slate-900">
+                    Calculate Rate & Book Coach
+                </h2>
+                <p class="text-slate-500 text-sm mt-1">
+                    Submitting automatically alerts Coach Saifullah instantly via WhatsApp and Email!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 max-w-5xl mx-auto items-start">
+                <div class="lg:col-span-7 card-white rounded-3xl p-6 sm:p-8 space-y-6 border border-rose-200 shadow-md">
+                    
+                    <div class="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-slate-800 block">Active Rate Tier:</span>
+                            <span id="rateLabel" class="text-xs text-brand-crimson font-black">
+                                First 3 Sessions Promo ($10/pax/hr)
+                            </span>
+                        </div>
+                        <button type="button" id="toggleRateBtn" onclick="togglePricingRate()" class="bg-white hover:bg-rose-100 text-brand-crimson text-xs font-bold px-3 py-1.5 rounded-xl border border-rose-300 transition-colors shadow-2xs">
+                            Switch Tier
+                        </button>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Preferred Date *
+                            </label>
+                            <input type="date" id="bookingDate" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Start Time *
+                            </label>
+                            <input type="time" id="bookingTime" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                            Coaching Module *
+                        </label>
+                        <select id="moduleSelect" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                            <option value="Basic Module">Basic Module (Fundamentals & NVZ Readiness)</option>
+                            <option value="Advanced Module" selected>Advanced Module (Resets, Drops & Strategy)</option>
+                            <option value="Customized Module">Customized Module (Tailored Drills & Analysis)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                            Number of Players (Pax) *
+                        </label>
+                        <div class="grid grid-cols-4 gap-2" id="paxGroup">
+                            <button type="button" onclick="setPax(1)" class="pax-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs">1 Pax</button>
+                            <button type="button" onclick="setPax(2)" class="pax-btn py-2.5 rounded-xl border-2 border-brand-crimson bg-rose-50 text-center font-black text-brand-crimson text-xs">2 Pax</button>
+                            <button type="button" onclick="setPax(3)" class="pax-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs">3 Pax</button>
+                            <button type="button" onclick="setPax(4)" class="pax-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs">4 Pax</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                            Duration *
+                        </label>
+                        <div class="grid grid-cols-3 gap-2" id="durationGroup">
+                            <button type="button" onclick="setDuration(1)" class="duration-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs">1 Hr</button>
+                            <button type="button" onclick="setDuration(1.5)" class="duration-btn py-2.5 rounded-xl border-2 border-brand-crimson bg-rose-50 text-center font-black text-brand-crimson text-xs">1.5 Hrs</button>
+                            <button type="button" onclick="setDuration(2)" class="duration-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs">2 Hrs</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                            Court / Venue Name & Court # *
+                        </label>
+                        <input type="text" id="courtLocation" placeholder="e.g. Pickleball Factory Court 2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                    </div>
+
+                    <div class="flex items-start gap-2.5 text-xs text-slate-600">
+                        <input type="checkbox" id="courtConfirmed" class="mt-0.5 rounded accent-brand-crimson">
+                        <label for="courtConfirmed" class="cursor-pointer select-none">
+                            I confirm I will secure the court slot for this duration.
+                        </label>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Your Full Name *
+                            </label>
+                            <input type="text" id="clientName" placeholder="e.g. Mohd Razak" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                WhatsApp Contact No *
+                            </label>
+                            <input type="tel" id="clientPhone" placeholder="e.g. +673 8123456" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-crimson">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Box -->
+                <div class="lg:col-span-5 sticky top-20">
+                    <div class="card-white rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-rose-200">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                            <h4 class="font-extrabold text-slate-900 text-base">Rate Breakdown</h4>
+                            <span id="promoBadge" class="bg-amber-100 text-amber-800 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                                Intro Promo
+                            </span>
+                        </div>
+
+                        <div class="space-y-2.5 text-xs text-slate-600 mb-6">
+                            <div class="flex justify-between">
+                                <span>Coach:</span>
+                                <span class="font-bold text-slate-900">Saifullah Jamil</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Module:</span>
+                                <span id="summaryModule" class="font-bold text-slate-900">Advanced Module</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Players (Pax):</span>
+                                <span id="summaryPax" class="font-bold text-slate-900">2 Players</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Duration:</span>
+                                <span id="summaryDuration" class="font-bold text-slate-900">1.5 Hours</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Rate / Pax / Hr:</span>
+                                <span id="summaryRateDisplay" class="font-bold text-brand-crimson">BND $10</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-rose-50 to-amber-50/50 border border-rose-200 rounded-2xl p-4 text-center mb-6">
+                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest block mb-1">Total Session Fee</span>
+                            <div class="flex items-baseline justify-center gap-2">
+                                <span id="summaryTotalPrice" class="text-4xl font-black text-slate-900">BND $30</span>
+                                <span id="summaryOriginalPrice" class="text-sm text-slate-400 line-through font-normal">BND $45</span>
+                            </div>
+                            <span id="summarySavings" class="inline-block mt-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                                Save BND $15 with Intro Special!
+                            </span>
+                        </div>
+
+                        <button type="button" onclick="submitBookingToWhatsApp()" class="btn-sheen w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Send Instant Booking Alert</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-white border-t border-rose-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-crimson text-xs font-extrabold uppercase tracking-widest block mb-1">Have Questions?</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Ask Coach Saifullah Directly</h2>
+            <p class="text-slate-600 text-sm mb-6">Submit a quick query below. You can send it directly to my phone via WhatsApp!</p>
+
+            <div class="card-white rounded-3xl p-6 sm:p-8 text-left border border-rose-200 shadow-md space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Name *</label>
+                    <input type="text" id="queryName" placeholder="e.g. Ahmad" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Question / Message *</label>
+                    <textarea id="queryMessage" rows="3" placeholder="e.g. Do you do weekend morning slots at Jerudong?" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm"></textarea>
+                </div>
+                <button type="button" onclick="submitQueryToWhatsApp()" class="w-full bg-brand-crimson hover:bg-brand-crimsonDark text-white font-bold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Send Query to Coach Phone</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-slate-800 pb-6 mb-8 gap-4">
+                <div>
+                    <span class="text-brand-crimson text-xs font-bold uppercase tracking-widest block">Coach Management</span>
+                    <h2 class="text-2xl font-black">AjarkuBroBN Schedule & Alerts Control</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="enablePushNotifications()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-bell"></i> Enable Push Alerts
+                    </button>
+                    <input type="password" id="adminPin" placeholder="Admin PIN (1234)" class="bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white w-32 focus:outline-none">
+                    <button type="button" onclick="verifyAdminPin()" class="bg-brand-crimson hover:bg-brand-crimsonDark px-4 py-2 rounded-xl text-xs font-bold">
+                        Unlock
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lock Message -->
+            <div id="adminLockedMsg" class="text-center py-12 text-slate-500">
+                <i class="fa-solid fa-lock text-3xl mb-2 text-slate-700"></i>
+                <p class="text-sm">Enter Coach PIN (Default: <code class="text-amber-400">1234</code>) to manage blocked dates and review schedule approvals.</p>
+            </div>
+
+            <!-- Admin Content (Hidden until unlocked) -->
+            <div id="adminContent" class="hidden space-y-8">
+                
+                <!-- Block Dates Tool -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <h3 class="font-extrabold text-base mb-3 flex items-center gap-2 text-amber-400">
+                        <i class="fa-solid fa-calendar-xmark"></i> Block Out Unavailable Dates
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="date" id="blockDateInput" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+                        <input type="text" id="blockReasonInput" placeholder="Reason (e.g. L&D Workshop)" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white grow">
+                        <button type="button" onclick="addBlockedDate()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold px-4 py-2 rounded-xl text-xs">
+                            Block Date
+                        </button>
+                    </div>
+
+                    <div class="mt-4">
+                        <span class="text-xs font-bold text-slate-400 block mb-2">Currently Blocked Dates:</span>
+                        <div id="blockedDatesList" class="flex flex-wrap gap-2 text-xs">
+                            <span class="text-slate-500 italic">No blocked dates.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Received Booking Requests -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <h3 class="font-extrabold text-base mb-3 flex items-center gap-2 text-emerald-400">
+                        <i class="fa-solid fa-inbox"></i> Incoming Booking Requests
+                    </h3>
+                    <div id="bookingRequestsList" class="space-y-3 text-xs">
+                        <p class="text-slate-500">No active booking requests found.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-500 py-8 text-xs text-center border-t border-slate-900">
+        <p>© 2026 AjarkuBroBN • Coach Saifullah Jamil (APBA Level 1) • Instant Phone Alert System Enabled</p>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, disableNetwork } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // Firebase Credentials
+        const firebaseConfig = {
+            apiKey: "AIzaSyCv14PrWS47lt7ZE4KvAQxX",
+            authDomain: "ajarkubrobn.firebaseapp.com",
+            projectId: "ajarkubrobn",
+            storageBucket: "ajarkubrobn.firebasestorage.app",
+            messagingSenderId: "589316283268",
+            appId: "1:589316283268:web:b8c2c01831",
+            measurementId: "G-2CD0EBGFMF"
+        };
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            // Explicitly disable network to prevent unconfigured Firestore API error polling
+            disableNetwork(db).catch(() => {});
+
+            window.db = db;
+            window.useFirestore = false; // Set to false to rely on instant localStorage & WhatsApp
+
+            window.blockedDatesData = JSON.parse(localStorage.getItem('ajarku_blocked') || '[]');
+            window.bookingsData = JSON.parse(localStorage.getItem('ajarku_bookings') || '[]');
+            renderBlockedDatesList();
+            renderBookingsList();
+
+        } catch (e) {
+            window.useFirestore = false;
+            window.blockedDatesData = JSON.parse(localStorage.getItem('ajarku_blocked') || '[]');
+            window.bookingsData = JSON.parse(localStorage.getItem('ajarku_bookings') || '[]');
+            renderBlockedDatesList();
+            renderBookingsList();
+        }
+    </script>
+
+    <script>
+        let currentPax = 2;
+        let currentDuration = 1.5;
+        let isPromoActive = true;
+
+        const regularRatePerPaxHr = 15;
+        const promoRatePerPaxHr = 10;
+        const coachWhatsAppNumber = "6738123456"; // Coach Saifullah's WhatsApp
+
+        window.onload = function() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('bookingDate').valueAsDate = tomorrow;
+            document.getElementById('bookingTime').value = "17:00";
+            
+            document.getElementById('bookingDate').addEventListener('change', checkSelectedDateBlocked);
+            document.getElementById('moduleSelect').addEventListener('change', updateCalculator);
+            
+            if (!window.blockedDatesData) {
+                window.blockedDatesData = JSON.parse(localStorage.getItem('ajarku_blocked') || '[]');
+                renderBlockedDatesList();
+            }
+            if (!window.bookingsData) {
+                window.bookingsData = JSON.parse(localStorage.getItem('ajarku_bookings') || '[]');
+                renderBookingsList();
+            }
+
+            updateCalculator();
+        };
+
+        function answerQ1(type) {
+            document.getElementById('quizQ1').classList.add('hidden');
+            document.getElementById('quizQ2').classList.remove('hidden');
+        }
+
+        function finishQuiz(recommendedModule) {
+            document.getElementById('quizQ2').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('recommendedModuleName').textContent = recommendedModule;
+        }
+
+        function applyQuizRecommendation() {
+            const rec = document.getElementById('recommendedModuleName').textContent;
+            document.getElementById('moduleSelect').value = rec;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            updateCalculator();
+        }
+
+        function selectModuleOption(moduleName) {
+            document.getElementById('moduleSelect').value = moduleName;
+            updateCalculator();
+        }
+
+        function setPax(pax) {
+            currentPax = pax;
+            const buttons = document.querySelectorAll('#paxGroup .pax-btn');
+            buttons.forEach((btn, idx) => {
+                if (idx + 1 === pax) {
+                    btn.className = "pax-btn py-2.5 rounded-xl border-2 border-brand-crimson bg-rose-50 text-center font-black text-brand-crimson text-xs";
+                } else {
+                    btn.className = "pax-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs";
+                }
+            });
+            updateCalculator();
+        }
+
+        function setDuration(duration) {
+            currentDuration = duration;
+            const durationMap = [1, 1.5, 2];
+            const buttons = document.querySelectorAll('#durationGroup .duration-btn');
+            buttons.forEach((btn, idx) => {
+                if (durationMap[idx] === duration) {
+                    btn.className = "duration-btn py-2.5 rounded-xl border-2 border-brand-crimson bg-rose-50 text-center font-black text-brand-crimson text-xs";
+                } else {
+                    btn.className = "duration-btn py-2.5 rounded-xl border border-slate-200 text-center font-bold text-slate-700 text-xs";
+                }
+            });
+            updateCalculator();
+        }
+
+        function togglePricingRate() {
+            isPromoActive = !isPromoActive;
+            document.getElementById('rateLabel').textContent = isPromoActive ? "First 3 Sessions Promo ($10/pax/hr)" : "Standard Rate ($15/pax/hr)";
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const activeRate = isPromoActive ? promoRatePerPaxHr : regularRatePerPaxHr;
+            const calculatedTotal = currentPax * currentDuration * activeRate;
+            const regularTotal = currentPax * currentDuration * regularRatePerPaxHr;
+
+            document.getElementById('summaryModule').textContent = document.getElementById('moduleSelect').value;
+            document.getElementById('summaryPax').textContent = `${currentPax} Player${currentPax > 1 ? 's' : ''}`;
+            document.getElementById('summaryDuration').textContent = `${currentDuration} Hour${currentDuration > 1 ? 's' : ''}`;
+            document.getElementById('summaryRateDisplay').textContent = `BND $${activeRate}`;
+            document.getElementById('summaryTotalPrice').textContent = `BND $${calculatedTotal.toFixed(0)}`;
+            document.getElementById('summaryOriginalPrice').textContent = `BND $${regularTotal.toFixed(0)}`;
+        }
+
+        function checkSelectedDateBlocked() {
+            const selectedDate = document.getElementById('bookingDate').value;
+            if (!window.blockedDatesData) return;
+
+            const found = window.blockedDatesData.find(b => b.date === selectedDate);
+            if (found) {
+                alert(`⚠️ Coach Saifullah is unavailable on ${selectedDate} (${found.reason || 'Blocked'}). Please choose another date!`);
+            }
+        }
+
+        async function submitBookingToWhatsApp() {
+            const dateVal = document.getElementById('bookingDate').value;
+            const timeVal = document.getElementById('bookingTime').value;
+            const moduleVal = document.getElementById('moduleSelect').value;
+            const locationVal = document.getElementById('courtLocation').value.trim();
+            const courtConfirmed = document.getElementById('courtConfirmed').checked;
+            const clientName = document.getElementById('clientName').value.trim();
+            const clientPhone = document.getElementById('clientPhone').value.trim();
+
+            if (!dateVal || !timeVal || !locationVal || !clientName) {
+                alert("Please fill in all required fields (Date, Time, Venue, and Name).");
+                return;
+            }
+
+            if (!courtConfirmed) {
+                alert("Please confirm that you will secure the court slot.");
+                return;
+            }
+
+            const activeRate = isPromoActive ? promoRatePerPaxHr : regularRatePerPaxHr;
+            const totalFee = currentPax * currentDuration * activeRate;
+
+            const bookingData = {
+                id: 'bk_' + Date.now(),
+                clientName,
+                clientPhone,
+                date: dateVal,
+                time: timeVal,
+                location: locationVal,
+                module: moduleVal,
+                pax: currentPax,
+                duration: currentDuration,
+                totalFee,
+                status: 'pending',
+                createdAt: new Date().toISOString()
+            };
+
+            saveLocalBooking(bookingData);
+
+            let msg = `🏓 *NEW BOOKING ALERT - AJARKUBROBN*\n`;
+            msg += `--------------------------------------\n`;
+            msg += `👤 *Client:* ${clientName}\n`;
+            msg += `📞 *Phone:* ${clientPhone || 'Not provided'}\n`;
+            msg += `📅 *Date:* ${dateVal} @ ${timeVal}\n`;
+            msg += `📍 *Court Venue:* ${locationVal}\n`;
+            msg += `📚 *Module:* ${moduleVal}\n`;
+            msg += `👥 *Pax:* ${currentPax} | ⏱️ *Duration:* ${currentDuration} Hrs\n`;
+            msg += `💰 *Total Fee:* BND $${totalFee}\n`;
+            msg += `--------------------------------------\n`;
+            msg += `Coach Saifullah, please confirm this session!`;
+
+            window.open(`https://wa.me/${coachWhatsAppNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function saveLocalBooking(bookingData) {
+            let localB = JSON.parse(localStorage.getItem('ajarku_bookings') || '[]');
+            localB.push(bookingData);
+            localStorage.setItem('ajarku_bookings', JSON.stringify(localB));
+            window.bookingsData = localB;
+            renderBookingsList();
+        }
+
+        function submitQueryToWhatsApp() {
+            const name = document.getElementById('queryName').value.trim();
+            const query = document.getElementById('queryMessage').value.trim();
+
+            if (!name || !query) {
+                alert("Please write your name and query message.");
+                return;
+            }
+
+            let msg = `❓ *NEW QUERY - AJARKUBROBN*\n`;
+            msg += `👤 *Name:* ${name}\n`;
+            msg += `💬 *Query:* ${query}\n`;
+
+            window.open(`https://wa.me/${coachWhatsAppNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function verifyAdminPin() {
+            const pin = document.getElementById('adminPin').value;
+            if (pin === "1234") {
+                document.getElementById('adminLockedMsg').classList.add('hidden');
+                document.getElementById('adminContent').classList.remove('hidden');
+                renderBlockedDatesList();
+                renderBookingsList();
+            } else {
+                alert("Incorrect PIN. Default is 1234.");
+            }
+        }
+
+        async function addBlockedDate() {
+            const date = document.getElementById('blockDateInput').value;
+            const reason = document.getElementById('blockReasonInput').value.trim();
+
+            if (!date) return alert("Select a date to block.");
+
+            const blockObj = { id: 'blk_' + Date.now(), date, reason };
+            saveLocalBlock(blockObj);
+
+            document.getElementById('blockDateInput').value = "";
+            document.getElementById('blockReasonInput').value = "";
+        }
+
+        function saveLocalBlock(blockObj) {
+            let localBlk = JSON.parse(localStorage.getItem('ajarku_blocked') || '[]');
+            localBlk.push(blockObj);
+            localStorage.setItem('ajarku_blocked', JSON.stringify(localBlk));
+            window.blockedDatesData = localBlk;
+            renderBlockedDatesList();
+        }
+
+        function renderBlockedDatesList() {
+            const container = document.getElementById('blockedDatesList');
+            if (!container || !window.blockedDatesData) return;
+
+            if (window.blockedDatesData.length === 0) {
+                container.innerHTML = `<span class="text-slate-500 italic">No blocked dates.</span>`;
+                return;
+            }
+
+            container.innerHTML = window.blockedDatesData.map(item => `
+                <span class="bg-rose-900/40 text-rose-300 border border-rose-700/50 px-2.5 py-1 rounded-lg flex items-center gap-2">
+                    ${item.date} (${item.reason || 'Blocked'})
+                    <button onclick="removeBlockedDate('${item.id}')" class="text-rose-400 hover:text-white font-bold">&times;</button>
+                </span>
+            `).join('');
+        }
+
+        async function removeBlockedDate(id) {
+            removeLocalBlock(id);
+        }
+
+        function removeLocalBlock(id) {
+            let localBlk = JSON.parse(localStorage.getItem('ajarku_blocked') || '[]');
+            localBlk = localBlk.filter(b => b.id !== id);
+            localStorage.setItem('ajarku_blocked', JSON.stringify(localBlk));
+            window.blockedDatesData = localBlk;
+            renderBlockedDatesList();
+        }
+
+        function renderBookingsList() {
+            const container = document.getElementById('bookingRequestsList');
+            if (!container || !window.bookingsData) return;
+
+            if (window.bookingsData.length === 0) {
+                container.innerHTML = `<p class="text-slate-500">No active booking requests found.</p>`;
+                return;
+            }
+
+            container.innerHTML = window.bookingsData.map(b => `
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="font-bold text-white text-sm">${b.clientName} (${b.clientPhone})</span>
+                        <div class="text-slate-400 text-xs mt-0.5">
+                            📅 ${b.date} @ ${b.time} | 📍 ${b.location} | 📚 ${b.module} | 👥 ${b.pax} Pax | BND $${b.totalFee}
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="approveBooking('${b.clientPhone}', '${b.date}', '${b.time}')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-lg text-xs">
+                            Approve & WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function approveBooking(phone, date, time) {
+            let msg = `✅ *AJARKUBROBN SESSION CONFIRMED!*\n`;
+            msg += `Hi! Coach Saifullah here. Your pickleball coaching session on ${date} @ ${time} is APPROVED! See you on court! 🏓`;
+            window.open(`https://wa.me/${phone || coachWhatsAppNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function enablePushNotifications() {
+            if ("Notification" in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        alert("Push notification alerts enabled on this device!");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
